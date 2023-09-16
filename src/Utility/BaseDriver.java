@@ -27,45 +27,44 @@ public class BaseDriver {
         logger.setLevel(Level.SEVERE);
 
         driver = new ChromeDriver();
-        //driver.manage().window().maximize();
+        driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        login();
 
     }
-
-    public void login() {
-
-        driver.get("https://openmrs.org");
-
-        WebElement demoButton = driver.findElement(By.xpath("(//*[@href='https://openmrs.org/demo/'])[2]"));
-        demoButton.click();
+public void login(){
 
 
-        WebElement mrs2Button = driver.findElement(By.xpath("(//span[@class='elementor-button-text'])[2]"));
-        mrs2Button.click();
 
-        MyFunc.bekle(2);
-        WebElement mrs2DemoButton = driver.findElement(By.xpath("(//span[@class='elementor-button-text'])[4]"));
-        mrs2DemoButton.click();
+    driver.get("https://demo.nopcommerce.com/");
+    MyFunc.bekle(5);
 
-        wait.until(ExpectedConditions.urlToBe("https://demo.openmrs.org/openmrs/login.htm"));
-        WebElement name = driver.findElement(By.id("username"));
-        name.sendKeys("Admin");
+    WebElement login = driver.findElement(By.cssSelector("[class='ico-login']"));
+    login.click();
+    MyFunc.bekle(2);
 
-        WebElement password = driver.findElement(By.id("password"));
-        password.sendKeys("Admin123");
+    WebElement loginEmail = driver.findElement(By.name("Email"));
+    loginEmail.sendKeys("team-7@gmail.com");
+    MyFunc.bekle(2);
 
-        MyFunc.bekle(2);
-        WebElement location = driver.findElement(By.id("Inpatient Ward"));
-        location.click();
+    WebElement loginPassword = driver.findElement(By.name("Password"));
+    loginPassword.sendKeys("Teknostudy7");
+    MyFunc.bekle(2);
 
-        WebElement login = driver.findElement(By.id("loginButton"));
-        login.click();
+    WebElement loginButton = driver.findElement(By.cssSelector("[class='button-1 login-button']"));
+    loginButton.click();
+    MyFunc.bekle(2);
 
-        Assert.assertTrue(driver.getCurrentUrl().equals("https://demo.openmrs.org/openmrs/referenceapplication/home.page"), "Yanlık kullanıcı adı veya şifre");
-    }
+    WebElement myAcount = driver.findElement(By.cssSelector("[class='ico-account']"));
+    myAcount.getText();
+    Assert.assertTrue(myAcount.getText().contains("My"));
 
+
+
+
+}
 
     @AfterClass
     public void bitisIslemleri() {
