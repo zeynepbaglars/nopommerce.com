@@ -13,9 +13,8 @@ public class _01_ extends BaseDriver {
     @Test
     public void US1() {
 
-
-
-
+        driver.get("https://demo.nopcommerce.com/");
+        MyFunc.bekle(5);
 
         WebElement register = driver.findElement(By.cssSelector("[class='ico-register']"));
         register.click();
