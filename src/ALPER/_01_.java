@@ -11,12 +11,11 @@ import org.testng.annotations.Test;
 
 public class _01_ extends BaseDriver {
     @Test
-    public void US1(){
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
+    public void US1() {
 
-        driver.get("https://demo.nopcommerce.com/");
-        MyFunc.bekle(5);
+
+
+
 
         WebElement register = driver.findElement(By.cssSelector("[class='ico-register']"));
         register.click();
@@ -35,20 +34,18 @@ public class _01_ extends BaseDriver {
         MyFunc.bekle(2);
 
 
-
         WebElement webDay = driver.findElement(By.name("DateOfBirthDay"));
         WebElement webMonth = driver.findElement(By.name("DateOfBirthMonth"));
         WebElement webYear = driver.findElement(By.name("DateOfBirthYear"));
 
-        Select day=new Select(webDay);
-        Select month=new Select(webMonth);
-        Select year=new Select(webYear);
+        Select day = new Select(webDay);
+        Select month = new Select(webMonth);
+        Select year = new Select(webYear);
 
         day.selectByVisibleText("1");
         month.selectByValue("1");
         year.selectByVisibleText("2023");
         MyFunc.bekle(2);
-
 
 
         WebElement email = driver.findElement(By.name("Email"));
@@ -71,18 +68,12 @@ public class _01_ extends BaseDriver {
         result.getText();
         Assert.assertTrue(result.getText().contains("Your"));
 
-        WebElement continueSignout= driver.findElement(By.cssSelector("[class='button-1 register-continue-button']"));
+        WebElement continueSignout = driver.findElement(By.cssSelector("[class='button-1 register-continue-button']"));
         continueSignout.click();
         MyFunc.bekle(2);
 
 
-        
-
-
-        //team-7@gmail.com"
-
-
-
+        driver.quit();
 
 
 
@@ -92,5 +83,30 @@ public class _01_ extends BaseDriver {
     }
 
 
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
