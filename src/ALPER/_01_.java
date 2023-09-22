@@ -47,7 +47,7 @@ public class _01_ extends BaseDriver {
 
 
         WebElement email = driver.findElement(By.name("Email"));
-        email.sendKeys("team-7@gmail.com");
+        email.sendKeys("team-789@gmail.com");
         MyFunc.bekle(2);
 
         WebElement password = driver.findElement(By.id("Password"));
