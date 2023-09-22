@@ -1,11 +1,7 @@
 package ZEYNEP;
 
-<<<<<<< HEAD
-import Utility.BaseDriver;
-=======
+
 import _Utility.BaseDriver;
-import org.junit.Test;
->>>>>>> master
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
