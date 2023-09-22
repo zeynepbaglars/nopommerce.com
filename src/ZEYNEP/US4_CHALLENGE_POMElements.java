@@ -1,6 +1,6 @@
 package ZEYNEP;
 
-import Utility.BaseDriver;
+import _Utility.BaseDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -36,29 +36,6 @@ public class US4_CHALLENGE_POMElements {
     public List<WebElement> searchProducts;////random al
     @FindBy(css = "[class='product-name'] h1")
     public WebElement productName;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }
