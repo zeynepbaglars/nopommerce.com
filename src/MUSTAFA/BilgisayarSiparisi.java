@@ -16,12 +16,11 @@ import java.util.List;
 public class BilgisayarSiparisi extends BaseDriver {
     @Test
     public void BilgisayarSiparisTesti() {
+
         driver.get("https://demo.nopcommerce.com/");
         MyFunc.bekle(3);
 
         WebElements elements=new WebElements();
-
-        //List<WebElement> tabs = driver.findElements(By.cssSelector("[class='top-menu notmobile'] > li"));
 
         List<String> list = new ArrayList<>();
         list.add("Computers");
@@ -39,36 +38,26 @@ public class BilgisayarSiparisi extends BaseDriver {
         Actions aksiyonlar = new Actions(driver);
         aksiyonlar.moveToElement(elements.tabs.get(0)).build().perform();
 
-        WebElement desktops = driver.findElement(By.xpath("(//a[text()='Desktops '])[1]"));
-        desktops.click();
+        elements.desktops.click();
 
         Assert.assertTrue(driver.getCurrentUrl().contains("desktops"), "Desktops sayfasi acik degil");
 
-        WebElement ownComputer = driver.findElement(By.xpath("//a[text()='Build your own computer']"));
-        ownComputer.click();
+        elements.ownComputer.click();
+        elements.selectRAM.click();
 
-        WebElement selectRAM = driver.findElement(By.id("product_attribute_2"));
-        selectRAM.click();
-
-        List<WebElement> optionsRAM = driver.findElements(By.cssSelector("[id='product_attribute_2'] > option"));
-        int borderRAM = optionsRAM.size();
+        int borderRAM = elements.optionsRAM.size();
         int indexRAM = randomNumberGeneration(borderRAM);
 
-        Select menuRAM = new Select(selectRAM);
+        Select menuRAM = new Select(elements.selectRAM);
         menuRAM.selectByIndex(indexRAM);
 
-
-        List<WebElement> optionsHDD = driver.findElements(By.name("product_attribute_3"));
-        int borderHDD = optionsHDD.size();
+        int borderHDD = elements.optionsHDD.size();
         int indexHDD = randomNumberGeneration(borderHDD);
-        optionsHDD.get(indexHDD).click();
 
-        WebElement addToCart = driver.findElement(By.id("add-to-cart-button-1"));
-        addToCart.click();
+        elements.optionsHDD.get(indexHDD).click();
+        elements.addToCart.click();
 
-        WebElement IsSuccessful = driver.findElement(By.className("bar-notification success"));
-
-        Assert.assertTrue(IsSuccessful.getText().contains("has been added"), "Urun sepete eklenmedi");
+        Assert.assertTrue(elements.IsSuccessful.getText().contains("has been added"), "Urun sepete eklenmedi");
 
     }
 
