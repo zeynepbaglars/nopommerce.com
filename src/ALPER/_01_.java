@@ -1,10 +1,9 @@
 package ALPER;
 
-import Utility.BaseDriver;
-import Utility.MyFunc;
+import _Utility.BaseDriver;
+import _Utility.MyFunc;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -48,7 +47,7 @@ public class _01_ extends BaseDriver {
 
 
         WebElement email = driver.findElement(By.name("Email"));
-        email.sendKeys("team-7@gmail.com");
+        email.sendKeys("team-789@gmail.com");
         MyFunc.bekle(2);
 
         WebElement password = driver.findElement(By.id("Password"));
