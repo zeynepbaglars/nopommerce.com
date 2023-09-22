@@ -1,8 +1,7 @@
 package ZEYNEP;
 
-
-import Utility.BaseDriver;
-import Utility.MyFunc;
+import _Utility.BaseDriver;
+import _Utility.MyFunc;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import org.openqa.selenium.WebElement;

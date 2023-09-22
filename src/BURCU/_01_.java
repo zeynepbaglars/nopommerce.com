@@ -1,10 +1,9 @@
 package BURCU;
 
-import Utility.BaseDriver;
-import Utility.MyFunc;
+import _Utility.BaseDriver;
+import _Utility.MyFunc;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
