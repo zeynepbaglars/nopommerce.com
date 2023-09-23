@@ -3,9 +3,12 @@ package MUSTAFA;
 import _Utility.BaseDriver;
 import _Utility.MyFunc;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,9 +17,9 @@ public class BilgisayarSiparisi extends BaseDriver {
     public void BilgisayarSiparisTesti() {
 
         driver.get("https://demo.nopcommerce.com/");
-        MyFunc.bekle(3);
+        MyFunc.bekle(2);
 
-        WebElements elements=new WebElements();
+        WebElements elements = new WebElements();
 
         List<String> list = new ArrayList<>();
         list.add("Computers");
@@ -31,9 +34,7 @@ public class BilgisayarSiparisi extends BaseDriver {
             Assert.assertEquals(elements.tabs.get(i).getText(), list.get(i), "Tab menu dogru sekilde gorunmuyor");
         }
 
-        Actions aksiyonlar = new Actions(driver);
-        aksiyonlar.moveToElement(elements.tabs.get(0)).build().perform();
-
+        elements.aksiyonlar.moveToElement(elements.tabs.get(0)).build().perform();
         elements.desktops.click();
 
         Assert.assertTrue(driver.getCurrentUrl().contains("desktops"), "Desktops sayfasi acik degil");
@@ -41,14 +42,15 @@ public class BilgisayarSiparisi extends BaseDriver {
         elements.ownComputer.click();
         elements.selectRAM.click();
 
+        wait.until(ExpectedConditions.visibilityOfAllElements(elements.optionsRAM));
         int borderRAM = elements.optionsRAM.size();
-        int indexRAM = randomNumberGeneration(borderRAM);
+        int indexRAM = WebElements.randomNumberGeneration(borderRAM);
 
         Select menuRAM = new Select(elements.selectRAM);
         menuRAM.selectByIndex(indexRAM);
 
         int borderHDD = elements.optionsHDD.size();
-        int indexHDD = randomNumberGeneration(borderHDD);
+        int indexHDD = WebElements.randomNumberGeneration(borderHDD);
 
         elements.optionsHDD.get(indexHDD).click();
         elements.addToCart.click();
@@ -57,11 +59,4 @@ public class BilgisayarSiparisi extends BaseDriver {
 
     }
 
-
-
-
-    public static int randomNumberGeneration(int border) {
-        int randomNumber = (int) (Math.random() * border);
-        return randomNumber;
-    }
 }

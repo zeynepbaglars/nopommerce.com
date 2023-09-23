@@ -3,9 +3,8 @@
 <suite name="mySuit">
 
     <test name="myTest1">
-
         <classes>
-            <class name="MUSTAFA.BilgisayarSiparisi"> </class>
+            <class name="MUSTAFA.BilgisayarSiparisi"></class>
         </classes>
     </test>
 

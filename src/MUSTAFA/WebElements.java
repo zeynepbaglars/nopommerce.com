@@ -1,11 +1,12 @@
 package MUSTAFA;
 
-
 import _Utility.BaseDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class WebElements {
@@ -14,7 +15,7 @@ public class WebElements {
         PageFactory.initElements(BaseDriver.driver, this);
     }
 
-    @FindBy(css = "[class='top-menu notmobile'] > li")
+    @FindBy(css = "[class='top-menu notmobile'] >li > a")
     public List<WebElement> tabs;
 
     @FindBy(xpath = "(//a[text()='Desktops '])[1]")
@@ -35,7 +36,20 @@ public class WebElements {
     @FindBy(id = "add-to-cart-button-1")
     public WebElement addToCart;
 
-    @FindBy(className = "bar-notification success")
+    @FindBy(className = "content")
     public WebElement IsSuccessful;
+
+
+
+
+    Actions aksiyonlar = new Actions(BaseDriver.driver);
+
+
+
+
+    public static int randomNumberGeneration(int border) {
+        int randomNumber = (int) (Math.random() * border);
+        return randomNumber;
+    }
 
 }
