@@ -1,4 +1,4 @@
-package Utility;
+package _Utility;
 
 public class MyFunc {
     public static void bekle(int sn){
