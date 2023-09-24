@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="mySuit">
+
+    <test name="myTest1">
+        <parameter name="mesaj" value="Adobe Photoshop CS4"></parameter>
+
+        <classes>
+            <class name="ADEM._01_"> </class>
+        </classes>
+    </test>
+
+</suite>
